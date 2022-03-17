@@ -9,4 +9,17 @@ export class AppController {
   getHello(@Param() params){
     return this.appService.getHello(params);
   }
+
+  @Get('/cars')
+  getCars(){
+    return this.appService.getCars();
+  }
+  @Get('/recycle')
+  getRecycle(){
+    return this.appService.getRecycle();
+  }
+  @Get('/bus')
+  getBus(){
+    return this.appService.getBus();
+  }
 }
