@@ -1,5 +1,4 @@
 import { Injectable ,Dependencies} from '@nestjs/common';
-// import Axios from "@nestjs/axios";
 import { catchError, map } from 'rxjs/operators';
 import {HttpModule , HttpService} from '@nestjs/axios'
 import { lastValueFrom } from 'rxjs';
@@ -26,7 +25,7 @@ export class AppService {
 
   getRecycle() {
     return this.httpService
-    .get(`https://chargepoints.dft.gov.uk/api/retrieve/registry/lat/57.148/long/-2.108/dist/10/format/json/`)
+    .get(`https://services5.arcgis.com/0sktPVp3t1LvXc9z/arcgis/rest/services/Recycling_Centres/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json`)
     .pipe(
       map((response)=>response.data)
     )
