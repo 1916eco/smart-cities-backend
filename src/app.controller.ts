@@ -9,7 +9,7 @@ export class AppController {
   getHello(@Param() params){
     return this.appService.getHello(params);
   }
-  @Get(':lat/:lng')
+  @Get('/airQuality/:lat/:lng')
   getAirQuality(@Param() params){
     return this.appService.getAirQuality(params);
   }
