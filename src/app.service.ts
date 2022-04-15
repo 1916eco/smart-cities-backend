@@ -37,4 +37,11 @@ export class AppService {
       map((response)=>response.data)
     )
   }
+  getAirQuality(params) {
+    return this.httpService
+    .get(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${params.lat}&lon=${params.lng}&appid=0a1fbec9a6e2b8404d669b2886c9640a`)
+    .pipe(
+      map((response)=>response.data)
+    )
+  }
 }
