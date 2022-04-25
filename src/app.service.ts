@@ -6,9 +6,9 @@ import { lastValueFrom } from 'rxjs';
 export class AppService {
   constructor(private httpService: HttpService) {}
 
-  getHello(params) {
+  getWeather(params) {
     return this.httpService
-    .get(`http://api.openweathermap.org/data/2.5/weather?lat=${params.lat}&lon=${params.lng}&appid=0a1fbec9a6e2b8404d669b2886c9640a`)
+    .get(`http://api.openweathermap.org/data/2.5/weather?lat=${params.lat}&lon=${params.lng}&appid=`+process.env.OPENWEATHERMAPAPIKEY)
     .pipe(
       map((response)=>response.data)
     )
@@ -25,21 +25,21 @@ export class AppService {
 
   getRecycle() {
     return this.httpService
-    .get(`https://services5.arcgis.com/0sktPVp3t1LvXc9z/arcgis/rest/services/Recycling_Centres/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json`)
+    .get(process.env.BASIC_LINK+`/0sktPVp3t1LvXc9z/arcgis/rest/services/Recycling_Centres/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json`)
     .pipe(
       map((response)=>response.data)
     )
   }
   getBus() {
     return this.httpService
-    .get(`https://services5.arcgis.com/0sktPVp3t1LvXc9z/arcgis/rest/services/Bus_Facilities/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json`)
+    .get(process.env.BASIC_LINK+`/0sktPVp3t1LvXc9z/arcgis/rest/services/Bus_Facilities/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json`)
     .pipe(
       map((response)=>response.data)
     )
   }
   getAirQuality(params) {
     return this.httpService
-    .get(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${params.lat}&lon=${params.lng}&appid=0a1fbec9a6e2b8404d669b2886c9640a`)
+    .get(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${params.lat}&lon=${params.lng}&appid=`+process.env.OPENWEATHERMAPAPIKEY)
     .pipe(
       map((response)=>response.data)
     )

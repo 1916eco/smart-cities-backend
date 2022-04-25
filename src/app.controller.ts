@@ -6,8 +6,8 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get(':lat/:lng')
-  getHello(@Param() params){
-    return this.appService.getHello(params);
+  getWeather(@Param() params){
+    return this.appService.getWeather(params);
   }
   @Get('/airQuality/:lat/:lng')
   getAirQuality(@Param() params){
